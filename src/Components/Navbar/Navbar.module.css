@@ -1,0 +1,283 @@
+.navbar {
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  padding: 0.8rem 1rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.container-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand & Logo */
+
+.navbarBrand {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbarBrand:hover{
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.navbarBrand:hover .logo{
+  animation-play-state: running;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+  animation: scaling 2s infinite;
+  animation-play-state: paused;
+}
+
+@keyframes scaling {
+  0%{
+    transform: scale(0.9);
+  }
+
+  25%{
+    transform: scale(1.1);
+  }
+
+  50%{
+    transform: scale(0.9);
+  }
+
+  75%{
+    transform: scale(1.1);
+  }
+
+  100%{
+    transform: scale(0.9);
+  }
+}
+
+.brandText {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+/* Toggler Button */
+
+.toggler {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.25rem 0.5rem;
+}
+
+.togglerIconOpen {
+  transform: rotate(90deg);
+}
+
+/* Navigation Links */
+
+.navMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.2rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navLink:hover, .navLink:focus {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navLink:hover::after {
+  width: 70%;
+}
+
+/* Dropdown Style */
+
+.dropdownMenu {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+}
+
+.dropdownItem {
+  padding: 0.6rem 1.2rem;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dropdownItem:hover {
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+  color: #fff !important;
+}
+
+.dropdownItem i,
+.dropdownItem span {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.dropdownItem:hover i,
+.dropdownItem:hover span {
+  transform: translateX(5px);
+}
+
+/* Authentication Buttons */
+
+.navAuth {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.authButton, .authButtonSecondary, .logoutButton {
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authButton {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.authButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.authButtonSecondary {
+  background: #fff;
+  color: #1a2a6c;
+  border: 2px solid #fff;
+}
+
+.authButtonSecondary:hover {
+  background: transparent;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.logoutButton {
+  background: red;
+  color: #fff;
+  margin-right: 12px;
+}
+
+.logoutButton:hover {
+  background: #fff;
+  color: red;
+  border: 2px solid red;
+  transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .navMain {
+    order: 1;
+    width: 100%;
+    margin: 1rem 0;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .navLink {
+    margin: 0.5rem 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .navAuth {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .authButton, .authButtonSecondary, .logoutButton {
+    width: 100%;
+    text-align: center;
+    margin: 0.2rem 0;
+  }
+  
+  .navbarBrand {
+    margin-right: 0;
+  }
+  
+  .dropdown-menu {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+@media (max-width: 576px) {
+  .brandText {
+    font-size: 1.1rem;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  .navLink {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.95rem;
+  }
+}

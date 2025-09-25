@@ -1,0 +1,516 @@
+/* About.module.css */
+.aboutContainer {
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.about{
+  background: linear-gradient(135deg, #1a2a6c 0%, #2c3e50 100%);
+  color: #fff;
+  padding: 5rem 0;
+  height: 100vh;
+}
+
+.aboutTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.aboutTitle span {
+  background: linear-gradient(135deg, #fdbb2d, #b21f1f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.aboutSubtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.aboutImage {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transform: perspective(800px) rotateY(5deg);
+  transition: transform 0.5s ease;
+}
+
+.aboutImage:hover {
+  transform: perspective(800px) rotateY(0);
+}
+
+.aboutImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mission & Values Section */
+
+.missionSection {
+  padding: 5rem 0;
+  background: #f8f9fa;
+}
+
+.tabContainer {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.tabButtons {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.tabButtons button {
+  flex: 1;
+  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabButtons button:hover {
+  color: #1a2a6c;
+  background: rgba(26, 42, 108, 0.05);
+}
+
+.tabButtons .activeTab {
+  color: #1a2a6c;
+  background: rgba(26, 42, 108, 0.1);
+  position: relative;
+}
+
+.tabButtons .activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(135deg, #fdbb2d, #b21f1f);
+}
+
+.tabContent {
+  padding: 2.5rem;
+}
+
+.tabPanel h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #1a2a6c;
+}
+
+.tabPanel p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Mission Stats */
+
+.missionStats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.statItem h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a2a6c;
+  margin-bottom: 0.5rem;
+}
+
+.statItem p {
+  color: #666;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Values List */
+
+.valuesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.valueItem {
+  display: flex;
+  align-items: flex-start;
+}
+
+.valueIcon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #1a2a6c, #2c3e50);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.valueContent h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #1a2a6c;
+}
+
+.valueContent p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Team Grid */
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.teamMember {
+  text-align: center;
+}
+
+.memberImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+  border: 5px solid #f8f9fa;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.memberImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memberImage:hover{
+    transform: translateY(-5px) scale(1.1);
+}
+
+.teamMember h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #1a2a6c;
+}
+
+.teamMember p {
+  color: #666;
+  margin: 0;
+}
+
+/* Story Section */
+.historySection {
+  padding: 5rem 0;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+  color: #1a2a6c;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #fdbb2d, #b21f1f);
+  border-radius: 2px;
+}
+
+.historyContent {
+  padding-right: 2rem;
+}
+
+.historyContent p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.historyImage {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.historyImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* API Section */
+
+.apiSection {
+  padding: 5rem 0;
+  background: #f8f9fa;
+}
+
+.apiImage {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.apiLogo {
+  width: 100px;
+  height: 100px;
+  margin-right: 1.5rem;
+  object-fit: contain;
+}
+
+.apiMeta h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a2a6c;
+}
+
+.apiMeta p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.apiLink {
+  display: inline-flex;
+  align-items: center;
+  color: #1a2a6c;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.apiLink:hover {
+  color: #b21f1f;
+}
+
+.apiDetails {
+  padding: 0 1rem;
+}
+
+.apiDetails h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #1a2a6c;
+}
+
+.apiDetails p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.apiFeatures {
+  margin: 2rem 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.featureItem i {
+  color: #28a745;
+  margin-right: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.featureItem span {
+  color: #444;
+  font-weight: 500;
+}
+
+.apiNote {
+  font-style: italic;
+  border-left: 4px solid #1a2a6c;
+  padding-left: 1rem;
+  color: #1a2a6c !important;
+}
+
+/* Newsletter Section */
+
+.newsletterSection {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #1a2a6c 0%, #2c3e50 100%);
+  color: #fff;
+}
+
+.newsletterContent {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletterContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.newsletterContent p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.newsletterForm {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.newsletterInput {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.newsletterButton {
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #fdbb2d, #b21f1f);
+  border: none;
+  border-radius: 0 50px 50px 0;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.newsletterButton:hover {
+  background: linear-gradient(135deg, #b21f1f, #fdbb2d);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .homeTitle {
+    font-size: 2.8rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  
+  .missionStats {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .apiImage {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .apiLogo {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 3rem 0;
+    text-align: center;
+  }
+  
+  .homeTitle {
+    font-size: 2.3rem;
+  }
+  
+  .homeSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .tabButtons {
+    flex-direction: column;
+  }
+
+  .apiDetails {
+    padding: 0;
+  }
+  
+  .newsletterForm {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .newsletterInput,
+  .newsletterButton {
+    border-radius: 50px;
+  }
+  
+  .historyContent {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .homeTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .tabContent {
+    padding: 1.5rem;
+  }
+  
+  .valuesList {
+    grid-template-columns: 1fr;
+  }
+  
+  .valueItem {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .valueIcon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
