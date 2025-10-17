@@ -1,4 +1,4 @@
-import img1 from '../../images/logo.png';
+ import img1 from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import { useNavigate } from 'react-router-dom';
@@ -19,15 +19,33 @@ export default function Navbar({logindata, setLoginData}) {
     setIsMenuOpen(!isMenuOpen);
   }
 
+  // Function to handle brand click
+  function handleBrandClick(e) {
+    if (!logindata) {
+      e.preventDefault(); // Prevent navigation if not logged in
+      navigate("/");
+      setIsMenuOpen(false);
+    }
+  }
+
   return (
     <>
       <nav className={`navbar navbar-expand-lg ${styles.navbar}`}>
         <div className="container-fluid">
-          {/* Logo and Brand Name */}
-          <Link className={`navbar-brand ${styles.navbarBrand}`} to="home">
-            <img className={styles.logo} src={img1} alt="Website logo"/>
-            <span className={styles.brandText}>NewsHub US Network</span>
-          </Link>
+          {/* Logo and Brand Name - Conditional */}
+          {logindata ? (
+            // Logged in - link to home page
+            <Link className={`navbar-brand ${styles.navbarBrand}`} to="home" onClick={() => setIsMenuOpen(false)}>
+              <img className={styles.logo} src={img1} alt="Website logo"/>
+              <span className={styles.brandText}>NewsHub US Network</span>
+            </Link>
+          ) : (
+            // Not logged in - non-clickable brand
+            <span className={`navbar-brand ${styles.navbarBrand} ${styles.disabledBrand}`}>
+              <img className={styles.logo} src={img1} alt="Website logo"/>
+              <span className={styles.brandText}>NewsHub US Network</span>
+            </span>
+          )}
           
           {/* Toggle Button */}
           <button className={`navbar-toggler ${styles.toggler}`} type="button" onClick={toggleMenu} aria-label="Toggle navigation">
