@@ -68,6 +68,20 @@
   letter-spacing: 1px;
 }
 
+/* Disabled brand style */
+
+.disabledBrand {
+  cursor: default !important;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.disabledBrand:hover {
+  transform: none !important;
+  background: none !important;
+  animation: none !important;
+}
+
 /* Toggler Button */
 
 .toggler {
