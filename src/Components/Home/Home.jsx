@@ -16,7 +16,7 @@ const Home = () => {
       setLoading(true);
       setError(null);
       const { data } = await axios.get(
-        `https://newsapi.org/v2/top-headlines?country=us&category=general&pageSize=6&apiKey=061c3bff2b054e75b3cca1dae6df9835`
+        `https://newsapi.org/v2/top-headlines?country=us&category=general&pageSize=6&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
       );
       setNews(data.articles);
     } catch (err) {
@@ -41,6 +41,16 @@ const Home = () => {
     { name: "Sports", icon: "fas fa-running", path: "/sports" },
     { name: "General", icon: "fas fa-newspaper", path: "/general" }
   ];
+
+  // Turns an ISO timestamp into a short relative label, e.g. "2h ago"
+  const formatPublished = (publishedAt) => {
+    if (!publishedAt) return null;
+    const diffMs = Date.now() - new Date(publishedAt).getTime();
+    const diffHrs = Math.floor(diffMs / (1000 * 60 * 60));
+    if (diffHrs < 1) return 'Just now';
+    if (diffHrs < 24) return `${diffHrs}h ago`;
+    return `${Math.floor(diffHrs / 24)}d ago`;
+  };
 
   // Showing error state if fetching failed
   if (error) {
@@ -103,7 +113,7 @@ const Home = () => {
       <section className={styles.latestNews}>
         <div className="container">
           <h2 className={styles.sectionTitle}>Latest News</h2>
-          
+
           {loading ? (
             <div className={styles.loading}>
               <i className="fas fa-spinner fa-spin"></i>
@@ -115,23 +125,29 @@ const Home = () => {
                 <div className="col-lg-4 col-md-6 mb-4" key={index}>
                   <div className={styles.newsCard}>
                     <div className={styles.newsImage}>
-                      <img src={article.urlToImage || imagenotfound} alt={article.title} 
+                      <img src={article.urlToImage || imagenotfound} alt={article.title}
                         onError={(e) => {
                           e.target.src = imagenotfound;
                         }}
                       />
+                      {article.source?.name && (
+                        <span className={styles.newsSource}>{article.source.name}</span>
+                      )}
                     </div>
                     <div className={styles.newsContent}>
                       <h3 className={styles.newsTitle}>{article.title}</h3>
                       <p className={styles.newsDescription}>
-                        {article.description ? 
-                          (article.description.length > 120 
-                            ? `${article.description.substring(0, 120)}...` 
+                        {article.description ?
+                          (article.description.length > 120
+                            ? `${article.description.substring(0, 120)}...`
                             : article.description)
                           : 'No description available.'
                         }
                       </p>
                       <div className={styles.newsMeta}>
+                        {formatPublished(article.publishedAt) && (
+                          <span className={styles.newsDate}>{formatPublished(article.publishedAt)}</span>
+                        )}
                         <a href={article.url} target="_blank" rel="noopener noreferrer" className={styles.readMore}>Read Full Article <i className="fas fa-arrow-right ms-2"></i>
                         </a>
                       </div>
